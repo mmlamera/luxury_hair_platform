@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState ,useEffect} from 'react';
 import "../assets/style.css";
 import '../assets/Reviews.css';
 
@@ -20,7 +20,14 @@ const Reviews = () => {
     const [reviewText, setReviewText] = useState('');
     const [image, setImage] = useState(null);
     const [reviews, setReviews] = useState(initialReviews);
-   
+
+
+    useEffect(() => {
+        // Fetch existing reviews
+        fetch("http://localhost:8080/LuxuryHairVendingSystemDB3/reviews/getall")
+            .then(response => setReviews(response.data))
+            .catch(error => console.error('Error fetching reviews:', error));
+    }, []);
 
 
     const handleImageChange = (e) => {
