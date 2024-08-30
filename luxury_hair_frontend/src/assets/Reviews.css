@@ -1,0 +1,76 @@
+.reviews {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.review-form-section, .existing-reviews-section {
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.review-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 5px;
+}
+
+.review-form textarea {
+    resize: vertical;
+
+}
+
+.image-preview {
+    max-width: 100px;/*made a change here*/
+    margin-top: 10px;
+}
+
+.review-card {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+
+}
+
+.review-card .review-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.review-card .review-rating {
+    font-size: 1.2em;
+    color: goldenrod;
+}
+
+.review-card .review-image {
+    max-width: 100px;
+    display: block;
+    margin-top: 10px;
+}
+
+.review-actions {
+    margin-top: 10px;
+}
+
