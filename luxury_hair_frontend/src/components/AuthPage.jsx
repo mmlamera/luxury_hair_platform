@@ -15,11 +15,13 @@ const AuthPage = () => {
             .catch(error => console.error('Error fetching user information:', error));
     }, []);
 
+    // Toggle between login and signup forms
     const toggleForm = () => {
         setIsLogin(!isLogin);
         setErrorMessage('');
     };
 
+    // Handle form submission for login and signup
     const handleSubmit = async (event) => {
         event.preventDefault();
         setErrorMessage('');
@@ -34,18 +36,19 @@ const AuthPage = () => {
             }
 
             if (!isLogin) {
-
+                // **New Code: Check if email exists in DB before sign-up**
                 const emailCheckResponse = await axios.get(`http://localhost:8080/LuxuryHairVendingSystemDB/userlogin/email-exists?email=${email}`);
                 if (emailCheckResponse.data.exists) {
                     throw new Error('Email already exists. Please log in.');
                 }
 
+                // **Existing Code: Sign-up logic**
                 const fullName = formData.get('fullName');
                 if (!fullName) {
                     throw new Error('Full name is required for sign up.');
                 }
 
-                const userID = uuidv4();
+                const userID = uuidv4(); // Generating a unique userID
                 const userType = 'customer';
 
                 await axios.post('http://localhost:8080/LuxuryHairVendingSystemDB/userlogin/create', {
@@ -57,28 +60,27 @@ const AuthPage = () => {
                 });
 
                 alert('Signup successful! Please log in.');
-                toggleForm();
+                toggleForm(); // Switch to login form after successful signup
             } else {
+                // **Existing Code: Login logic**
                 const response = await axios.post('http://localhost:8080/LuxuryHairVendingSystemDB/userlogin/read', {
                     email,
                     password,
                 });
 
                 if (response.status === 200) {
-                    setShowPopup(true);
+                    setShowPopup(true); // **New Code: Show popup message on successful login**
                 } else {
-                    throw new Error('Invalid login credentials');
+                    throw new Error('Please ensure all fields are entered correctly');
                 }
             }
-        }
-        catch (error) {
-
-            setErrorMessage(error.message);
+        } catch (error) {
+            setErrorMessage( 'Please ensure all fields are entered correctly.');
             setShowPopup(true);
         }
     };
 
-
+    // Handle Google login success
     const handleGoogleLoginSuccess = (response) => {
         console.log('Google login success:', response);
 
@@ -92,12 +94,14 @@ const AuthPage = () => {
             });
     };
 
+    // Handle Google login error
     const handleGoogleLoginError = (error) => {
         console.log('Google login error:', error);
         setErrorMessage('Google login failed. Please try again.');
         setShowPopup(true);
     };
 
+    // Close the popup message
     const closePopup = () => {
         setShowPopup(false);
         setErrorMessage('');
