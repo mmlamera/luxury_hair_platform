@@ -15,9 +15,9 @@ public class ReviewsService {
     public ReviewsService(ReviewsRepository repo) {
         this.reviewsRepository = repo;
     }
- private ReviewsService(){
+    private ReviewsService(){
 
- }
+    }
     public Reviews create(Reviews reviews){
         return reviewsRepository.save(reviews);
     }
@@ -25,10 +25,10 @@ public class ReviewsService {
     public Reviews read(String ReviewId){
         return reviewsRepository.findById(ReviewId).orElse(null);
     }
- public Reviews update(Reviews reviews){
+    public Reviews update(Reviews reviews){
         return reviewsRepository.save(reviews);
- }
- public List<Reviews> getall(){
+    }
+    public List<Reviews> getall(){
         return reviewsRepository.findAll();
- }
+    }
 }

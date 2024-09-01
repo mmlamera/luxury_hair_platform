@@ -8,7 +8,7 @@ import za.ac.cput.services.ReviewsService;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = " http://localhost:5174")
+@CrossOrigin(origins = "http://localhost:5173")
 @RequestMapping("/Reviews")
 public class ReviewsController {
     @Autowired
@@ -19,9 +19,9 @@ public class ReviewsController {
         return reviewsService.create(reviews);
     }
 
-    @GetMapping("/read/{ReviewsID}")
-    public Reviews read(@PathVariable String ReviewsID) {
-        return reviewsService.read(ReviewsID);
+    @GetMapping("/read/{ReviewID}")
+    public Reviews read(@PathVariable String ReviewID) {
+        return reviewsService.read(ReviewID);
     }
 
     @PostMapping("/update")

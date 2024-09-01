@@ -8,7 +8,7 @@ import za.ac.cput.services.OrderService;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = " http://localhost:5174")
+@CrossOrigin(origins = "http://localhost:5173")
 @RequestMapping("/Order")
 public class OrderController {
     @Autowired
