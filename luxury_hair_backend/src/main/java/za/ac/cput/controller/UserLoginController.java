@@ -9,15 +9,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import za.ac.cput.domain.UserLogin;
 import za.ac.cput.services.UserLoginService;
 import java.util.HashMap;
 import java.util.Map;
-@CrossOrigin(origins = "http://localhost:5173")
+
 @RestController
 @RequestMapping("/userlogin")
-//@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = "http://localhost:5173")
 
 public class UserLoginController {
     private static final String CLIENT_ID = "116310698020-3tjps2m44tu1vgl6nh6phvt91l0l1mf8.apps.googleusercontent.com";
