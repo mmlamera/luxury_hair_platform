@@ -1,3 +1,4 @@
+
 .container {
     display: flex;
     justify-content: center;
@@ -57,7 +58,7 @@
 .toggle-btn {
     width: 100%;
     padding: 12px;
-    background-color: #f67280;
+    background-color:#f67280 ;
     color: #333;
     border: none;
     border-radius: 5px;
@@ -90,7 +91,7 @@
 /* Google button styling */
 /*.google-btn {
     background-color: #f35b6a; /* Pastel pink for Google button */
-/*  color: #333;*/
+  /*  color: #333;*/
 /*}*/
 
 /*.google-btn:hover {

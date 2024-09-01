@@ -14,7 +14,6 @@ public class NewsletterService {
     NewsletterService(NewsletterRepository repository){
         this.repo = repository;
     }
-
     public Newsletter read(Long aLong) {
         return repo.findById(aLong).orElse(null);
     }

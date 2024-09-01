@@ -17,10 +17,10 @@ public class Newsletter {
 
     public Newsletter() {
     }
-    private Newsletter(Builder builder){
+private Newsletter(Builder builder){
         this.newsletterId = builder.newsletterId;
         this.email = builder.email;
-    }
+}
 
     public Newsletter(Long newsletterId, String email) {
         this.newsletterId = newsletterId;
@@ -75,9 +75,9 @@ public class Newsletter {
             this.email = newsletter.email;
             return this;
         }
-        public Newsletter build(){
+       public Newsletter build(){
             return new Newsletter(this);
-        }
+       }
 
     }
 }
