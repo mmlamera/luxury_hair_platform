@@ -2,11 +2,13 @@ package za.ac.cput.domain;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 import java.util.Objects;
 
 @Entity
-public class Order {
+//@Table(name = "CustomerOrder")
+public class CustomerOrder {
     @Id
     private String orderID;
     private  int quantity;
@@ -17,10 +19,10 @@ public class Order {
     private String shippingMethod;
     private String paymentMethod;
 
-    public Order(){
+    public CustomerOrder(){
 
     }
-    public Order(Builder builder){
+    public CustomerOrder(Builder builder){
         this.orderID=builder.orderID;
         this.quantity=builder.quantity;
         this.totalPrice=builder.totalPrice;
@@ -62,8 +64,8 @@ public class Order {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if(!(o instanceof Order order)) return false;
-        return quantity== order.quantity && Double.compare(totalPrice,order.totalPrice)==0&& Objects.equals(orderID,order.orderID)&& Objects.equals(orderDate,order.orderDate)&& Objects.equals(orderStatus,order.orderStatus)&& Objects.equals(shippingAddress,order.shippingAddress)&& Objects.equals(shippingMethod,order.shippingMethod)&& Objects.equals(paymentMethod,order.paymentMethod);
+        if(!(o instanceof CustomerOrder customerOrder)) return false;
+        return quantity== customerOrder.quantity && Double.compare(totalPrice, customerOrder.totalPrice)==0&& Objects.equals(orderID, customerOrder.orderID)&& Objects.equals(orderDate, customerOrder.orderDate)&& Objects.equals(orderStatus, customerOrder.orderStatus)&& Objects.equals(shippingAddress, customerOrder.shippingAddress)&& Objects.equals(shippingMethod, customerOrder.shippingMethod)&& Objects.equals(paymentMethod, customerOrder.paymentMethod);
 
     }
 
@@ -126,19 +128,19 @@ public class Order {
             this.paymentMethod=paymentMethod;
             return this;
         }
-        public Builder copy(Order order){
-            this.orderID=order.orderID;
-            this.quantity=order.quantity;
-            this.totalPrice=order.totalPrice;
-            this.orderStatus=order.orderStatus;
-            this.orderDate=order.orderDate;
-            this.shippingAddress=order.shippingAddress;
-            this.shippingMethod=order.shippingMethod;
-            this.paymentMethod=order.paymentMethod;
+        public Builder copy(CustomerOrder customerOrder){
+            this.orderID= customerOrder.orderID;
+            this.quantity= customerOrder.quantity;
+            this.totalPrice= customerOrder.totalPrice;
+            this.orderStatus= customerOrder.orderStatus;
+            this.orderDate= customerOrder.orderDate;
+            this.shippingAddress= customerOrder.shippingAddress;
+            this.shippingMethod= customerOrder.shippingMethod;
+            this.paymentMethod= customerOrder.paymentMethod;
             return this;
         }
-        public Order build(){
-            return new Order(this);
+        public CustomerOrder build(){
+            return new CustomerOrder(this);
         }
     }
 
