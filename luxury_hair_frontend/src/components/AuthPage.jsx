@@ -3,12 +3,17 @@ import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
 import '../assets/AuthPage.css';
 import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
+import { useParams, useNavigate } from "react-router-dom";
+import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
+import Home from "./Home.jsx";
+
 
 const AuthPage = () => {
     const [isLogin, setIsLogin] = useState(true);
     const [errorMessage, setErrorMessage] = useState('');
     const [showPopup, setShowPopup] = useState(false);
-
+//    const [isHome,setIsHome] = useState(true);
+    const navigate = useNavigate();
     useEffect(() => {
         axios.get('http://localhost:8080/LuxuryHairVendingSystemDB/userlogin/')
             .then(response => setIsLogin(response.data))
@@ -19,6 +24,22 @@ const AuthPage = () => {
         setIsLogin(!isLogin);
         setErrorMessage('');
     };
+    const homeDirect = ()  =>{
+
+        navigate("/Home");
+    }
+    /*const toggleNav = () =>{
+        setIsHome(!isHome);
+        return(
+        <Router>
+            <Routes>
+                <Route path="/" element={<Home />} />
+            </Routes>
+        </Router>
+        )
+    };*/
+
+
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -57,6 +78,7 @@ const AuthPage = () => {
                 });
 
                 alert('Signup successful! Please log in.');
+
                 toggleForm();
             } else {
                 const response = await axios.post('http://localhost:8080/LuxuryHairVendingSystemDB/userlogin/read', {
@@ -109,8 +131,8 @@ const AuthPage = () => {
                 {showPopup && (
                     <div className="popup">
                         <div className="popup-inner">
-                            {errorMessage ? <p>{errorMessage}</p> : <p>Login successful!</p>} {/* **New Code: Popup message content** */}
-                            <button className="close-btn" onClick={closePopup}>Close</button>
+                            {errorMessage ? <p>{errorMessage}</p> : <p>Login successful!</p>} {}
+                            <button className="close-btn" onClick={homeDirect}>Close2</button>
                         </div>
                     </div>
                 )}
