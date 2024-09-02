@@ -27,7 +27,7 @@ const AuthPage = () => {
     const homeDirect = ()  =>{
 
         navigate("/Home");
-    }
+    };
     /*const toggleNav = () =>{
         setIsHome(!isHome);
         return(
@@ -84,7 +84,9 @@ const AuthPage = () => {
                 const response = await axios.post('http://localhost:8080/LuxuryHairVendingSystemDB/userlogin/read', {
                     email,
                     password,
-                });
+                })
+                alert('Login Successful! ');
+                homeDirect();
 
                 if (response.status === 200) {
                     setShowPopup(true);
@@ -92,6 +94,7 @@ const AuthPage = () => {
                     throw new Error('Invalid login credentials');
                 }
             }
+
         }
         catch (error) {
 
@@ -132,7 +135,7 @@ const AuthPage = () => {
                     <div className="popup">
                         <div className="popup-inner">
                             {errorMessage ? <p>{errorMessage}</p> : <p>Login successful!</p>} {}
-                            <button className="close-btn" onClick={homeDirect}>Close2</button>
+                            <button className="close-btn" onClick={closePopup}>Close</button>
                         </div>
                     </div>
                 )}
