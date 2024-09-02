@@ -6,7 +6,7 @@ import za.ac.cput.domain.Reviews;
 
 @Repository
 public interface ReviewsRepository extends JpaRepository<Reviews,String> {
-   // Reviews findByReviewsId(String ReviewId);
+    Reviews findByReviewId(String ReviewId);
 }
 
 

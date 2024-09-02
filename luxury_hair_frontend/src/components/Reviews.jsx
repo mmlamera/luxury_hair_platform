@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React , { useState, useEffect } from "react";
 import "../assets/style.css";
 import "../assets/Reviews.css";
+import axios from "axios";
 import Navbar from "./Navbar"; // Adjust the path if necessary
 import Footer from "./Footer"; // Adjust the path if necessary
 
-const baseUrl = import.meta.env.VITE_BACK_END_URL;
+
 
 const Reviews = () => {
   const [name, setName] = useState("");
@@ -14,10 +15,10 @@ const Reviews = () => {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
-    // Fetch reviews from the database
-    fetch(`${baseUrl}/reviews`)
+
+    axios.get(`http://localhost:8080/LuxuryHairVendingSystemDB3/reviews/getall`)
       .then((response) => response.json())
-      .then((data) => setReviews(data))
+      .then((response) => setReviews(response.data))
       .catch((error) => console.error("Error fetching reviews:", error));
   }, []);
 
@@ -35,11 +36,11 @@ const Reviews = () => {
       rating,
       date: new Date().toLocaleDateString(),
       text: reviewText,
-      image, 
+      image,
     };
 
     // Submit the new review to the database
-    fetch(`${baseUrl}/reviews`, {
+    axios.post(`http://localhost:8080/LuxuryHairVendingSystemDB3/reviews/create`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -64,7 +65,7 @@ const Reviews = () => {
     <div className="reviews-page">
       <Navbar />
       <header className="header">
-       
+
       </header>
       <main className="main-content">
         <section className="review-form-section">
@@ -148,7 +149,7 @@ const Reviews = () => {
             <p>No reviews yet.</p>
           )}
         </section>
-       
+
       </main>
       <Footer />
     </div>
