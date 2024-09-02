@@ -1,13 +1,13 @@
 package za.ac.cput.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.Objects;
 
 @Entity
 public class Reviews {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private String ReviewId;
     private String ReviewTitle;
     private String ReviewDescription;

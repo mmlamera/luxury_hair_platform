@@ -1,15 +1,14 @@
 package za.ac.cput.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.util.Objects;
 
 @Entity
-//@Table(name = "CustomerOrder")
+
 public class CustomerOrder {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private String orderID;
     private  int quantity;
     private  double totalPrice;

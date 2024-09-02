@@ -21,7 +21,7 @@ public class ReviewsControllerTest {
         @Autowired
         private TestRestTemplate restTemplate;
 
-        private final String BASE_URL = "http://localhost:8080/reviews";
+        private final String BASE_URL = "http://localhost:8080/LuxuryHairVendingSystemDB/reviews";
 
         private static Reviews reviews;
 

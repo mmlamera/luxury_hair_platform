@@ -22,8 +22,8 @@ public class ReviewsRepositoryTest {
         System.out.println(reviews);
     }
     @Test
-    void findReviewsById(){
-        reviews=Repository.findReviewsByReviewId("R2435");
+    void findByReviewId(){
+        reviews=Repository.findByReviewId("R2435");
         System.out.println(reviews);
 
     }

@@ -23,7 +23,7 @@ public class CustomerOrderControllerTest {
     @Autowired
     private TestRestTemplate restTemplate;
 
-    private final String BASE_URL = "http://localhost:8080/order";
+    private final String BASE_URL = "http://localhost:8080/LuxuryHairVendingSystemDB/customerorder";
 
     private static CustomerOrder customerOrder;
 
