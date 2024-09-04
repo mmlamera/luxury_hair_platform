@@ -35,7 +35,6 @@ public class UserLogin {
         this.password = password;
     }
 
-    // Getters and Setters
     public Long getUserId() { return userId; }
 
     public String getEmail() { return email; }
@@ -72,7 +71,6 @@ public class UserLogin {
                 '}';
     }
 
-    // Builder pattern
     public static class Builder {
         private Long userId;
         private String email;
