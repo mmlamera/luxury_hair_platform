@@ -70,6 +70,7 @@ const OrderDetails = () => {
                 </label>
                 <br />
                 <button className="place-order-button">Place Order</button>
+                <button className="reviews">Write a Reviews</button>
             </div>
 
         </div>
