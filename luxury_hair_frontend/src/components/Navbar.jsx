@@ -51,6 +51,9 @@ const Navbar = () => {
               Cart <span>({cartItemsCount})</span>
             </NavLink>
           </li>
+          <li>
+            <NavLink to="/reviews">Reviews</NavLink>
+          </li>
 
           {isLoggedIn ? (
               <li>
